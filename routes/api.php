@@ -17,6 +17,7 @@ use App\Http\Controllers\CarsController;
 
 
 Route::get('cars', [CarsController::class, 'index']);
+Route::get('cars/{id}', [CarsController::class, 'view']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

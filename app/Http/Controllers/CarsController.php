@@ -16,4 +16,13 @@ class CarsController extends Controller
         ], 200);
 
     }
+
+    public function view($id){
+
+        $car = Cars::with('carModel.carBrand')->findOrFail($id);
+
+        return response()->json([
+            "car" => $car
+        ], 200);
+    }
 }
