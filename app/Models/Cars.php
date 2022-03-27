@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Cars extends Model
 {
     use HasFactory;
+
+    public function carModel(){
+        return $this->hasOne('App\Models\CarsModels', 'id', 'model_id');
+    }
 }
