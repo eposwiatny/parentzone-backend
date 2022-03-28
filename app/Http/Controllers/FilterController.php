@@ -10,12 +10,12 @@ class FilterController extends Controller
 {
     public function index(Request $request){
 
-        if($request->brand === 'all'){
+        if($request->brand === 'all' || $request->brand == ''){
             $brands = CarsBrands::all();
             $models = [];
         }
         
-        else if($request->brand !== 'all' && $request->model == 'all'){
+        else if($request->brand !== 'all' && $request->model == 'all' || $request->model == ''){
             $brands = CarsBrands::all();
             $brandTmp = CarsBrands::where('name', $request->brand)->first();
             $models = CarsModels::where('brand_id', $brandTmp->id)->get();

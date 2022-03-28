@@ -41,4 +41,37 @@ class CarsController extends Controller
             "car" => $car
         ], 200);
     }
+
+    public function store(Request $request){
+
+        if($request->newBrand){
+            $brand = CarsBrands::create(['name' => $request->newBrand]);
+            $brand = $brand->id;
+        }
+        else{
+            $brand = $request->brand;
+        }
+
+        if($request->newModel){
+            $model= CarsModels::create([
+                'name' => $request->newModel,
+                'brand_id' => $brand,
+            ]);
+            $model = $model->id;
+        }
+        else{
+            $model = $request->model;
+        }
+
+        Cars::create([
+            'img_url'       => 'x',
+            'description'   => $brand,
+            'model_id'      => $model,
+            'places'        => $request->places,
+            'is_automatic'  => $request->transmission,
+            'fuel_type'     => $request->fuel_type,
+            'price'         => $request->price
+          ]);
+
+    }
 }

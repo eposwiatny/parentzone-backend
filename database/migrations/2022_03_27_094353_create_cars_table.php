@@ -22,6 +22,7 @@ class CreateCarsTable extends Migration
             $table->tinyInteger('is_automatic');
             $table->string('fuel_type');
             $table->decimal('price', 7, 2);
+            $table->timestamps();
         });
     }
 

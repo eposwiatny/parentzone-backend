@@ -13,4 +13,9 @@ class CarsModels extends Model
         return $this->hasOne('App\Models\CarsBrands', 'id', 'brand_id');
     }
 
+    protected $fillable = [
+        'name',
+        'brand_id'
+    ];
+
 }

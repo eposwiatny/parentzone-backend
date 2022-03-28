@@ -19,6 +19,7 @@ use App\Http\Controllers\FilterController;
 
 Route::get('filters', [FilterController::class, 'index']);
 Route::get('cars', [CarsController::class, 'index']);
+Route::post('cars', [CarsController::class, 'store']);
 Route::get('cars/{id}', [CarsController::class, 'view']);
 
 
